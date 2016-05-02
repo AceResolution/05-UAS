@@ -520,26 +520,50 @@ void initdisplay( int argc, char *argv[] )
 
   // Init Ambient Lighting
   glShadeModel (GL_SMOOTH);
-  GLfloat mat_ambient[] = { 1.0, 0.5, 1.0, 0.1 };
-  GLfloat mat_shininess[] = { 50.0 };
-  glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
-  glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+  // GLfloat mat_ambient[] = { 1.0, 0.5, 1.0, 0.1 };
+  // GLfloat mat_shininess[] = { 50.0 };
+  // glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+  // glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
   
   // GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.5 };
   // glLightfv(GL_LIGHT0, GL_POSITION, light_position);
 
-  GLfloat light_ambient[] = { 0.5, 0.5, 0.5, 0.5 };
-  glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+  GLfloat light_ambient0[] = { 0.1, 0.0, 0.0, 0.1 };
+  GLfloat light_ambient1[] = { 0.0, 0.1, 0.0, 0.1 };
+  GLfloat light_ambient2[] = { 0.0, 0.0, 0.1, 0.1 };
+  GLfloat light_ambient3[] = { 0.1, 0.1, 0.0, 0.1 };
+  GLfloat light_ambient4[] = { 0.1, 0.0, 0.1, 0.1 };
+  GLfloat light_ambient5[] = { 0.0, 0.1, 0.1, 0.1 };
+  GLfloat light_ambient6[] = { 0.1, 0.1, 0.1, 0.1 };
+  GLfloat light_ambient7[] = { 0.0, 0.0, 0.0, 0.1 };
+  glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient0);
+  glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient1);
+  glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient2);
+  glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient3);
+  glLightfv(GL_LIGHT4, GL_AMBIENT, light_ambient4);
+  glLightfv(GL_LIGHT5, GL_AMBIENT, light_ambient5);
+  glLightfv(GL_LIGHT6, GL_AMBIENT, light_ambient6);
+  glLightfv(GL_LIGHT7, GL_AMBIENT, light_ambient7);
 
-  GLfloat light_diffuse[] = { 0.5, 0.5, 0.5, 0.5 };
-  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+  // GLfloat light_diffuse[] = { 0.5, 0.5, 0.5, 0.5 };
+  // glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
 
-  GLfloat light_specular[] = { 0.5, 0.5, 0.5, 0.5 };
-  glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+  // GLfloat light_specular[] = { 0.5, 0.5, 0.5, 0.5 };
+  // glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
 
+  glEnable(GL_COLOR_MATERIAL);
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
+  glEnable(GL_LIGHT1);
+  glEnable(GL_LIGHT2);
+  glEnable(GL_LIGHT3);
+  glEnable(GL_LIGHT4);
+  glEnable(GL_LIGHT5);
+  glEnable(GL_LIGHT6);
+  glEnable(GL_LIGHT7);
   glEnable(GL_DEPTH_TEST);
+
+  glEnable(GL_BLEND);
 
   glutMainLoop();
 }
