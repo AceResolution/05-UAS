@@ -525,8 +525,20 @@ void initdisplay( int argc, char *argv[] )
   // glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
   // glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
   
-  // GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.5 };
-  // glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+  GLfloat light_position0[] = { 1.0, 0.0, 0.0, 1 };
+  GLfloat light_position1[] = { 0.0, 1.0, 0.0, 1 };
+  GLfloat light_position2[] = { 0.0, 0.0, 1.0, 1 };
+  GLfloat light_position3[] = { -1.0, 0.0, 0.0, 1 };
+  GLfloat light_position4[] = { 0.0, -1.0, 0.0, 1 };
+  GLfloat light_position5[] = { 0.0, 0.0, -1.0, 1 };
+  // GLfloat light_position6[] = { 1.0, 1.0, 1.0, 1 };
+  // GLfloat light_position7[] = { 1.0, 1.0, 1.0, 1 };
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position0);
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position1);
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position2);
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position3);
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position4);
+  glLightfv(GL_LIGHT0, GL_POSITION, light_position5);
 
   GLfloat light_ambient0[] = { 0.1, 0.0, 0.0, 0.1 };
   GLfloat light_ambient1[] = { 0.0, 0.1, 0.0, 0.1 };
@@ -534,19 +546,26 @@ void initdisplay( int argc, char *argv[] )
   GLfloat light_ambient3[] = { 0.1, 0.1, 0.0, 0.1 };
   GLfloat light_ambient4[] = { 0.1, 0.0, 0.1, 0.1 };
   GLfloat light_ambient5[] = { 0.0, 0.1, 0.1, 0.1 };
-  GLfloat light_ambient6[] = { 0.1, 0.1, 0.1, 0.1 };
-  GLfloat light_ambient7[] = { 0.0, 0.0, 0.0, 0.1 };
+  // GLfloat light_ambient6[] = { 0.1, 0.1, 0.1, 0.1 };
+  // GLfloat light_ambient7[] = { 0.0, 0.0, 0.0, 0.1 };
   glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient0);
   glLightfv(GL_LIGHT1, GL_AMBIENT, light_ambient1);
   glLightfv(GL_LIGHT2, GL_AMBIENT, light_ambient2);
   glLightfv(GL_LIGHT3, GL_AMBIENT, light_ambient3);
   glLightfv(GL_LIGHT4, GL_AMBIENT, light_ambient4);
   glLightfv(GL_LIGHT5, GL_AMBIENT, light_ambient5);
-  glLightfv(GL_LIGHT6, GL_AMBIENT, light_ambient6);
-  glLightfv(GL_LIGHT7, GL_AMBIENT, light_ambient7);
+  // glLightfv(GL_LIGHT6, GL_AMBIENT, light_ambient6);
+  // glLightfv(GL_LIGHT7, GL_AMBIENT, light_ambient7);
 
-  // GLfloat light_diffuse[] = { 0.5, 0.5, 0.5, 0.5 };
-  // glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+  GLfloat light_diffuse[] = { 0.5, 0.5, 0.5, 0.5 };
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+  glLightfv(GL_LIGHT1, GL_DIFFUSE, light_diffuse);
+  glLightfv(GL_LIGHT2, GL_DIFFUSE, light_diffuse);
+  glLightfv(GL_LIGHT3, GL_DIFFUSE, light_diffuse);
+  glLightfv(GL_LIGHT4, GL_DIFFUSE, light_diffuse);
+  glLightfv(GL_LIGHT5, GL_DIFFUSE, light_diffuse);
+  // glLightfv(GL_LIGHT6, GL_DIFFUSE, light_diffuse);
+  // glLightfv(GL_LIGHT7, GL_DIFFUSE, light_diffuse);
 
   // GLfloat light_specular[] = { 0.5, 0.5, 0.5, 0.5 };
   // glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
@@ -559,8 +578,8 @@ void initdisplay( int argc, char *argv[] )
   glEnable(GL_LIGHT3);
   glEnable(GL_LIGHT4);
   glEnable(GL_LIGHT5);
-  glEnable(GL_LIGHT6);
-  glEnable(GL_LIGHT7);
+  // glEnable(GL_LIGHT6);
+  // glEnable(GL_LIGHT7);
   glEnable(GL_DEPTH_TEST);
 
   glEnable(GL_BLEND);
