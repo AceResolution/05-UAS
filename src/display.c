@@ -20,6 +20,8 @@
  *                                                                       *
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
+#include <GL/gl.h>
+#include <GL/glu.h>
 #include <GL/glut.h>
 #include "_cube.h"
 
@@ -442,6 +444,8 @@ void reshape(int width, int height)
   glLoadIdentity();
   gluPerspective(45.,(float)width/(float)height,0.01,100);
   glMatrixMode(GL_MODELVIEW);
+
+  glLoadIdentity();
 }
 
 
@@ -513,6 +517,29 @@ void initdisplay( int argc, char *argv[] )
   glutReshapeFunc(reshape);
   glutDisplayFunc(draw);
   glutKeyboardFunc(GestionClavier);
+
+  // Init Ambient Lighting
+  glShadeModel (GL_SMOOTH);
+  GLfloat mat_ambient[] = { 1.0, 0.5, 1.0, 0.1 };
+  GLfloat mat_shininess[] = { 50.0 };
+  glMaterialfv(GL_FRONT, GL_AMBIENT, mat_ambient);
+  glMaterialfv(GL_FRONT, GL_SHININESS, mat_shininess);
+  
+  // GLfloat light_position[] = { 1.0, 1.0, 1.0, 0.5 };
+  // glLightfv(GL_LIGHT0, GL_POSITION, light_position);
+
+  GLfloat light_ambient[] = { 0.5, 0.5, 0.5, 0.5 };
+  glLightfv(GL_LIGHT0, GL_AMBIENT, light_ambient);
+
+  GLfloat light_diffuse[] = { 0.5, 0.5, 0.5, 0.5 };
+  glLightfv(GL_LIGHT0, GL_DIFFUSE, light_diffuse);
+
+  GLfloat light_specular[] = { 0.5, 0.5, 0.5, 0.5 };
+  glLightfv(GL_LIGHT0, GL_SPECULAR, light_specular);
+
+  glEnable(GL_LIGHTING);
+  glEnable(GL_LIGHT0);
+  glEnable(GL_DEPTH_TEST);
 
   glutMainLoop();
 }
