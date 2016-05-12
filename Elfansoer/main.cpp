@@ -48,6 +48,7 @@ void initialize(int argc, char** argv) {
     glEnable(GL_LIGHTING);
     glEnable(GL_LIGHT0);
     glEnable(GL_LIGHT1);
+//    glEnable(GL_LIGHT2);
     glShadeModel(GL_SMOOTH);
 
 	Image* image = loadBMP("gbr.bmp");
@@ -109,17 +110,33 @@ void initScene() {
 	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambientColor);
 
     //Add positioned light
-	GLfloat lightColor0[] = {0.5f, 0.5f, 0.5f, 1.0f}; //Color (0.5, 0.5, 0.5)
+
+	GLfloat lightColor00[] = {0.5f, 0.5f, 0.5f, 1.0f}; //Color (0.5, 0.5, 0.5)
+	GLfloat lightColor01[] = {1.0f, 1.0f, 1.0f, 1.0f}; //Color (0.5, 0.5, 0.5)
+	GLfloat lightColor02[] = {0.0f, 0.0f, 0.0f, 1.0f}; //Color (0.5, 0.5, 0.5)
 	GLfloat lightPos0[] = {4.0f, 0.0f, 8.0f, 1.0f}; //Positioned at (4, 0, 8)
-	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightColor0);
+	glLightfv(GL_LIGHT0, GL_DIFFUSE, lightColor01);
+	glLightfv(GL_LIGHT0, GL_AMBIENT, lightColor02);
+	glLightfv(GL_LIGHT0, GL_SPECULAR, lightColor01);
 	glLightfv(GL_LIGHT0, GL_POSITION, lightPos0);
 
 	//Add directed light
-	GLfloat lightColor1[] = {0.7f, 0.7f, 0.7f, 1.0f}; //Color (0.5, 0.2, 0.2)
+	GLfloat lightColor10[] = {0.1f, 0.1f, 0.1f, 1.0f}; //Color (0.5, 0.2, 0.2)
+	GLfloat lightColor11[] = {0.1f, 0.4f, 0.1f, 1.0f}; //Color (0.5, 0.2, 0.2)
+	GLfloat lightColor12[] = {0.1f, 0.8f, 0.1f, 1.0f}; //Color (0.5, 0.2, 0.2)
 	//Coming from the direction (-1, 0.5, 0.5)
 	GLfloat lightPos1[] = {-1.0f, 0.5f, 0.5f, 0.0f};
-	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightColor1);
+	glLightfv(GL_LIGHT1, GL_DIFFUSE, lightColor11);
+	glLightfv(GL_LIGHT1, GL_AMBIENT, lightColor10);
+	glLightfv(GL_LIGHT1, GL_SPECULAR, lightColor12);
 	glLightfv(GL_LIGHT1, GL_POSITION, lightPos1);
+
+//    Add directed light
+//	GLfloat lightColor2[] = {0.4f, 0.4f, 0.4f, 1.0f}; //Color (0.5, 0.2, 0.2)
+//	//Coming from the direction (-1, 0.5, 0.5)
+//	GLfloat lightPos2[] = {-1.0f, 0.0f, 0.0f, 0.0f};
+//	glLightfv(GL_LIGHT2, GL_SPECULAR, lightColor2);
+//	glLightfv(GL_LIGHT2, GL_POSITION, lightPos2);
 
     // Draw the cube
     Cube.draw(_textureId);

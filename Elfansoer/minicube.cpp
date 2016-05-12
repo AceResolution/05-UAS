@@ -50,13 +50,16 @@ void minicube::setFaceColor(int fc, int color) {
     face[fc] = color;
 }
 
+GLfloat whiteSpecularMaterial[] = {1.0, 1.0, 1.0}; //set the material to white
 void minicube::draw(GLuint tex) {
     glPushMatrix();
         // Rotate about axis when animated
         glRotatef(rx,1.0f,0.0f,0.0f);
         glRotatef(ry,0.0f,1.0f,0.0f);
         glRotatef(rz,0.0f,0.0f,1.0f);
-
+        GLfloat mShininess[] = {1};
+        //glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, whiteSpecularMaterial);
+        glMaterialfv(GL_FRONT,GL_SHININESS,mShininess);
         glPushMatrix();
             // Translate position
             glTranslatef(cx,cy,cz);
@@ -139,6 +142,25 @@ void minicube::swapFace(int a, int b, int c, int d) {
     face[b] = temp;
 }
 
+GLfloat red[] = {1.0f,0.0f,0.0f};
+GLfloat green[] = {0.0f,1.0f,0.0f};
+GLfloat blue[] = {0.0f,0.0f,1.0f};
+GLfloat cyan[] = {0.0f,1.0f,1.0f};
+GLfloat yellow[] = {1.0f,0.0f,1.0f};
+GLfloat magenta[] = {1.0f,1.0f,0.0f};
+GLfloat black[] = {0.0f,0.0f,0.0f};
+
+//void minicube::setColor(int color) {
+//    switch (color) {
+//        case 0: glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, red); break;
+//        case 1: glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, green); break;
+//        case 2: glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, blue); break;
+//        case 3: glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, cyan); break;
+//        case 4: glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, yellow); break;
+//        case 5: glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, magenta); break;
+//        case 6: glMaterialfv(GL_FRONT_AND_BACK, GL_SPECULAR, black); break;
+//    }
+//}
 void minicube::setColor(int color) {
     switch (color) {
         case 0: glColor3f(1.0f,0.0f,0.0f); break;
